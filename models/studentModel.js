@@ -26,6 +26,10 @@ const studentModel = new mongoose.Schema(
                                     ], 
                                     // match: []
                         },
+                        resetPasswordToken: {
+                            type: String,
+                            default: "0",
+                        }, 
             },
             { timestamps: true}
 );

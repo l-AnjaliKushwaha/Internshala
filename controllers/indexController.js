@@ -97,3 +97,7 @@ exports.studentupdate = catchAsyncErrors(async(req, res, next) => {
         message: "Student Update Successfully!",
     });
 });  
+
+exports.studentavatar = catchAsyncErrors(async(req, res, next) => {
+    res.json({file: req.files});
+}); 

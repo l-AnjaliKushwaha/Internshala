@@ -26,7 +26,13 @@ const studentModel = new mongoose.Schema(
                     minLength: [3, "City name should be atleast 3 character long"],
                 }, 
                 gender: { type: String, enum: ["Male", "Female", "Others"]},
-                avatar: String,
+                avatar: {
+                    type: Object,
+                    default: {
+                        filed: '',
+                        url: 'https://images.unsplash.com/photo-1704494918677-d8cbef9f0dd5?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyOHx8fGVufDB8fHx8fA%3D%3D',
+                    }, 
+                },
 
                         email: {
                                     type: String,

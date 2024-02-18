@@ -14,3 +14,26 @@ exports.addeducation = catchAsyncErrors(async (req, res, next) => {
             await student.save();
             res.json({ message: "Education Added!"});
 });
+
+exports.editeducation = catchAsyncErrors(async (req, res, next) => {
+            const student = await Student.findById(req.id).exec();
+            const eduIndex = student.resume.education.findIndex(
+                        (i) => i.id === req.params.eduid
+            );
+            student.resume.education[eduIndex] = {
+                        ...student.resume.education[eduIndex],
+                        ...req.body,
+            };
+            await student.save();
+            res.json({ message: "Education Updated!" });
+});
+
+exports.deleteeducation = catchAsyncErrors(async (req, res, next) => {
+            const student = await Student.findById(req.id).exec();
+            const filterededu = student.resume.education.filter(
+                        (i) => i.id === req.params.eduid
+            );
+           student.resume.education = filterededu;
+           await student.save();
+           res.json({ message: "Education Deleted!"});
+});

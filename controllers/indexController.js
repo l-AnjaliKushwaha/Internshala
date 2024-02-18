@@ -86,3 +86,14 @@ exports.studentresetpassword = catchAsyncErrors(async (req, res, next) => {
         await student.save(); 
         sendtoken(student, 200 , res);    
 }); 
+
+exports.studentupdate = catchAsyncErrors(async(req, res, next) => {
+    await Student.findByIdAndUpdate(
+        req.params.id,
+        req.body
+    ).exec();
+    res.status(200).json({
+        success: true,
+        message: "Student Update Successfully!",
+    });
+});  

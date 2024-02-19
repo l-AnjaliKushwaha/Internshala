@@ -37,3 +37,35 @@ exports.deleteeducation = catchAsyncErrors(async (req, res, next) => {
            await student.save();
            res.json({ message: "Education Deleted!"});
 });
+
+
+exports.addjob = catchAsyncErrors(async (req, res, next) => {
+            const student = await Student.findById(req.id).exec();
+            student.resume.job.push({ ...req.body, id: uuidv4() });
+            await student.save();
+            res.json({ message: "Job Added!" });
+});
+
+exports.editjob = catchAsyncErrors(async (req, res, next) => {
+            const student = await Student.findById(req.id).exec();
+            const jobIndex = student.resume.job.findIndex(
+                        (i) => i.id === req.params.jobid
+            );
+            student.resume.job[jobIndex] = {
+                        ...student.resume.job[jobIndex],
+                        ...req.body,
+            };
+            await student.save();
+            res.json({ message: "Job Updated!" });
+});
+
+exports.deletejob = catchAsyncErrors(async (req, res, next) => {
+            const student = await Student.findById(req.id).exec();
+            const filteredjob = student.resume.job.filter(
+                        (i) => i.id === req.params.jobid
+            );
+            student.resume.job = filteredjob;
+            await student.save();
+            res.json({ message: "Job Deleted!" });
+});
+

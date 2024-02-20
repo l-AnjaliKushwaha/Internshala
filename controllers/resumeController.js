@@ -128,3 +128,63 @@ exports.deleteresponsibilities = catchAsyncErrors(async (req, res, next) => {
             await student.save();
             res.json({ message: "Responsibilities Deleted!" });
 });
+
+exports.addcourses = catchAsyncErrors(async (req, res, next) => {
+            const student = await Student.findById(req.id).exec();
+            student.resume.courses.push({ ...req.body, id: uuidv4() });
+            await student.save();
+            res.json({ message: "Courses Added!" });
+});
+
+exports.editcourses = catchAsyncErrors(async (req, res, next) => {
+            const student = await Student.findById(req.id).exec();
+            const coursesIndex = student.resume.courses.findIndex(
+                        (i) => i.id === req.params.coursesid
+            );
+            student.resume.courses[coursesIndex] = {
+                        ...student.resume.courses[coursesIndex],
+                        ...req.body,
+            };
+            await student.save();
+            res.json({ message: "Courses Updated!" });
+});
+
+exports.deletecourses = catchAsyncErrors(async (req, res, next) => {
+            const student = await Student.findById(req.id).exec();
+            const filteredcourses = student.resume.courses.filter(
+                        (i) => i.id === req.params.coursesid
+            );
+            student.resume.courses = filteredcourses;
+            await student.save();
+            res.json({ message: "Courses Deleted!" });
+});
+
+exports.addcourses = catchAsyncErrors(async (req, res, next) => {
+            const student = await Student.findById(req.id).exec();
+            student.resume.courses.push({ ...req.body, id: uuidv4() });
+            await student.save();
+            res.json({ message: "Courses Added!" });
+});
+
+exports.editcourses = catchAsyncErrors(async (req, res, next) => {
+            const student = await Student.findById(req.id).exec();
+            const coursesIndex = student.resume.courses.findIndex(
+                        (i) => i.id === req.params.coursesid
+            );
+            student.resume.courses[coursesIndex] = {
+                        ...student.resume.courses[coursesIndex],
+                        ...req.body,
+            };
+            await student.save();
+            res.json({ message: "Courses Updated!" });
+});
+
+exports.deletecourses = catchAsyncErrors(async (req, res, next) => {
+            const student = await Student.findById(req.id).exec();
+            const filteredcourses = student.resume.courses.filter(
+                        (i) => i.id === req.params.coursesid
+            );
+            student.resume.courses = filteredcourses;
+            await student.save();
+            res.json({ message: "Courses Deleted!" });
+});

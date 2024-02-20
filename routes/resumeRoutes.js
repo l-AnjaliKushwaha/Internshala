@@ -57,6 +57,15 @@ router.post("/edit-responsibilities/:responsibilitiesid", isAuthenticated, editr
 // POST
 router.post("/delete-responsibilities/:responsibilitiesid", isAuthenticated, deleteresponsibilities);
 
+// POST
+router.post("/add-courses", isAuthenticated, addcourses);
+
+// POST
+router.post("/edit-courses/:coursesid", isAuthenticated, editcourses);
+
+// POST
+router.post("/delete-courses/:coursesid", isAuthenticated, deletecourses);
+
 
 
 

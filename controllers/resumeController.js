@@ -188,3 +188,33 @@ exports.deleteprojects = catchAsyncErrors(async (req, res, next) => {
             await student.save();
             res.json({ message: "Projects Deleted!" });
 });
+
+exports.addskills = catchAsyncErrors(async (req, res, next) => {
+            const student = await Student.findById(req.id).exec();
+            student.resume.skills.push({ ...req.body, id: uuidv4() });
+            await student.save();
+            res.json({ message: "Skills Added!" });
+});
+
+exports.editskills = catchAsyncErrors(async (req, res, next) => {
+            const student = await Student.findById(req.id).exec();
+            const skillsIndex = student.resume.skills.findIndex(
+                        (i) => i.id === req.params.skillsid
+            );
+            student.resume.skills[skillsIndex] = {
+                        ...student.resume.skills[skillsIndex],
+                        ...req.body,
+            };
+            await student.save();
+            res.json({ message: "Skills Updated!" });
+});
+
+exports.deleteskills = catchAsyncErrors(async (req, res, next) => {
+            const student = await Student.findById(req.id).exec();
+            const filteredskills = student.resume.skills.filter(
+                        (i) => i.id === req.params.skillsid
+            );
+            student.resume.skills = filteredskills;
+            await student.save();
+            res.json({ message: "Skills Deleted!" });
+});

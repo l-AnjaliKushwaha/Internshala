@@ -69,3 +69,32 @@ exports.deletejob = catchAsyncErrors(async (req, res, next) => {
             res.json({ message: "Job Deleted!" });
 });
 
+exports.addinternship = catchAsyncErrors(async (req, res, next) => {
+            const student = await Student.findById(req.id).exec();
+            student.resume.internships.push({ ...req.body, id: uuidv4() });
+            await student.save();
+            res.json({ message: "Internship Added!" });
+});
+
+exports.editinternship = catchAsyncErrors(async (req, res, next) => {
+            const student = await Student.findById(req.id).exec();
+            const internshipIndex = student.resume.internships.findIndex(
+                        (i) => i.id === req.params.internshipid
+            );
+            student.resume.internships[internshipIndex] = {
+                        ...student.resume.internships[internshipIndex],
+                        ...req.body,
+            };
+            await student.save();
+            res.json({ message: "Internship Updated!" });
+});
+
+exports.deleteinternship = catchAsyncErrors(async (req, res, next) => {
+            const student = await Student.findById(req.id).exec();
+            const filteredinternship = student.resume.internships.filter(
+                        (i) => i.id === req.params.internshipid
+            );
+            student.resume.internships = filteredinternship;
+            await student.save();
+            res.json({ message: "Internship Deleted!" });
+});

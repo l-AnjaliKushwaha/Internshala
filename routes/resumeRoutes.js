@@ -8,6 +8,9 @@ const {
             addjob,
             editjob,
             deletejob,
+            addinternship,
+            editinternship,
+            deleteinternship,
 
  } = require("../controllers/resumeController");
 const { isAuthenticated } = require("../middlewares/auth");
@@ -33,6 +36,15 @@ router.post("/edit-job/:jobid", isAuthenticated, editjob);
 // POST
 router.post("/delete-job/:jobid", isAuthenticated, deletejob);
 
+// POST
+router.post("/add-internship", isAuthenticated, addinternship);
+
+// POST
+router.post("/edit-internship/:internshipid", isAuthenticated, editinternship);
+
+// POST
+router.post("/delete-internship/:internshipid", isAuthenticated, deleteinternship);
+ob
 
 
 

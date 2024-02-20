@@ -159,32 +159,32 @@ exports.deletecourses = catchAsyncErrors(async (req, res, next) => {
             res.json({ message: "Courses Deleted!" });
 });
 
-exports.addcourses = catchAsyncErrors(async (req, res, next) => {
+exports.addprojects = catchAsyncErrors(async (req, res, next) => {
             const student = await Student.findById(req.id).exec();
-            student.resume.courses.push({ ...req.body, id: uuidv4() });
+            student.resume.projects.push({ ...req.body, id: uuidv4() });
             await student.save();
-            res.json({ message: "Courses Added!" });
+            res.json({ message: "Projects Added!" });
 });
 
-exports.editcourses = catchAsyncErrors(async (req, res, next) => {
+exports.editprojects = catchAsyncErrors(async (req, res, next) => {
             const student = await Student.findById(req.id).exec();
-            const coursesIndex = student.resume.courses.findIndex(
-                        (i) => i.id === req.params.coursesid
+            const projectsIndex = student.resume.projects.findIndex(
+                        (i) => i.id === req.params.projectsid
             );
-            student.resume.courses[coursesIndex] = {
-                        ...student.resume.courses[coursesIndex],
+            student.resume.projects[projectsIndex] = {
+                        ...student.resume.projects[projectsIndex],
                         ...req.body,
             };
             await student.save();
-            res.json({ message: "Courses Updated!" });
+            res.json({ message: "Projects Updated!" });
 });
 
-exports.deletecourses = catchAsyncErrors(async (req, res, next) => {
+exports.deleteprojects = catchAsyncErrors(async (req, res, next) => {
             const student = await Student.findById(req.id).exec();
-            const filteredcourses = student.resume.courses.filter(
-                        (i) => i.id === req.params.coursesid
+            const filteredprojects = student.resume.projects.filter(
+                        (i) => i.id === req.params.projectsid
             );
-            student.resume.courses = filteredcourses;
+            student.resume.projects = filteredprojects;
             await student.save();
-            res.json({ message: "Courses Deleted!" });
+            res.json({ message: "Projects Deleted!" });
 });

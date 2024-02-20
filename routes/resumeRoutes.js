@@ -14,6 +14,9 @@ const {
             addresponsibilities,
             editresponsibilities,
             deleteresponsibilities,
+            addprojects,
+            editprojects,
+            deleteprojects,
 
  } = require("../controllers/resumeController");
 const { isAuthenticated } = require("../middlewares/auth");
@@ -65,6 +68,15 @@ router.post("/edit-courses/:coursesid", isAuthenticated, editcourses);
 
 // POST
 router.post("/delete-courses/:coursesid", isAuthenticated, deletecourses);
+
+// POST
+router.post("/add-projects", isAuthenticated, addprojects);
+
+// POST
+router.post("/edit-projects/:projectsid", isAuthenticated, editprojects);
+
+// POST
+router.post("/delete-projects/:projectsid", isAuthenticated, deleteprojects);
 
 
 

@@ -218,3 +218,33 @@ exports.deleteskills = catchAsyncErrors(async (req, res, next) => {
             await student.save();
             res.json({ message: "Skills Deleted!" });
 });
+
+exports.addaccomplishments = catchAsyncErrors(async (req, res, next) => {
+            const student = await Student.findById(req.id).exec();
+            student.resume.accomplishments.push({ ...req.body, id: uuidv4() });
+            await student.save();
+            res.json({ message: "Accomplishments Added!" });
+});
+
+exports.editaccomplishments = catchAsyncErrors(async (req, res, next) => {
+            const student = await Student.findById(req.id).exec();
+            const accomplishmentsIndex = student.resume.accomplishments.findIndex(
+                        (i) => i.id === req.params.accomplishmentsid
+            );
+            student.resume.accomplishments[accomplishmentsIndex] = {
+                        ...student.resume.accomplishments[accomplishmentsIndex],
+                        ...req.body,
+            };
+            await student.save();
+            res.json({ message: "Accomplishments Updated!" });
+});
+
+exports.deleteaccomplishments = catchAsyncErrors(async (req, res, next) => {
+            const student = await Student.findById(req.id).exec();
+            const filteredaccomplishments = student.resume.accomplishments.filter(
+                        (i) => i.id === req.params.accomplishmentsid
+            );
+            student.resume.accomplishments = filteredaccomplishments;
+            await student.save();
+            res.json({ message: "Accomplishments Deleted!" });
+});

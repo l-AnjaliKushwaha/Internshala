@@ -20,6 +20,9 @@ const {
             addskills,
             editskills,
             deleteskills,
+            addaccomplishments,
+            editaccomplishments,
+            deleteaccomplishments,
 
  } = require("../controllers/resumeController");
 const { isAuthenticated } = require("../middlewares/auth");
@@ -89,6 +92,15 @@ router.post("/edit-skills/:skillsid", isAuthenticated, editskills);
 
 // POST
 router.post("/delete-skills/:skillsid", isAuthenticated, deleteskills);
+
+// POST
+router.post("/add-accomplishments", isAuthenticated, addaccomplishments);
+
+// POST
+router.post("/edit-accomplishments/:accomplishmentsid", isAuthenticated, editaccomplishments);
+
+// POST
+router.post("/delete-accomplishments/:accomplishmentsid", isAuthenticated, deleteaccomplishments);
 
 
 

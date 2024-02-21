@@ -11,18 +11,21 @@ const {
             addinternship,
             editinternship,
             deleteinternship,
-            addresponsibilities,
-            editresponsibilities,
-            deleteresponsibilities,
-            addprojects,
-            editprojects,
-            deleteprojects,
-            addskills,
-            editskills,
-            deleteskills,
-            addaccomplishments,
-            editaccomplishments,
-            deleteaccomplishments,
+            addresponsibilitie,
+            editresponsibilitie,
+            deleteresponsibilitie,
+            addcourse,
+            editcourse,
+            deletecourse, 
+            addproject,
+            editproject,
+            deleteproject,
+            addskill,
+            editskill,
+            deleteskill,
+            addaccomplishment,
+            editaccomplishment,
+            deleteaccomplishment,
 
  } = require("../controllers/resumeController");
 const { isAuthenticated } = require("../middlewares/auth");
@@ -58,49 +61,49 @@ router.post("/edit-internship/:internshipid", isAuthenticated, editinternship);
 router.post("/delete-internship/:internshipid", isAuthenticated, deleteinternship);
 
 // POST
-router.post("/add-responsibilities", isAuthenticated, addresponsibilities);
+router.post("/add-responsibilitie", isAuthenticated, addresponsibilitie);
 
 // POST
-router.post("/edit-responsibilities/:responsibilitiesid", isAuthenticated, editresponsibilities);
+router.post("/edit-responsibilitie/:responsibilitieid", isAuthenticated, editresponsibilitie);
 
 // POST
-router.post("/delete-responsibilities/:responsibilitiesid", isAuthenticated, deleteresponsibilities);
+router.post("/delete-responsibilitie/:responsibilitieid", isAuthenticated, deleteresponsibilitie);
 
 // POST
-router.post("/add-courses", isAuthenticated, addcourses);
+router.post("/add-course", isAuthenticated, addcourse);
 
 // POST
-router.post("/edit-courses/:coursesid", isAuthenticated, editcourses);
+router.post("/edit-course/:courseid", isAuthenticated, editcourse);
 
 // POST
-router.post("/delete-courses/:coursesid", isAuthenticated, deletecourses);
+router.post("/delete-course/:courseid", isAuthenticated, deletecourse);
 
 // POST
-router.post("/add-projects", isAuthenticated, addprojects);
+router.post("/add-project", isAuthenticated, addproject);
 
 // POST
-router.post("/edit-projects/:projectsid", isAuthenticated, editprojects);
+router.post("/edit-project/:projectid", isAuthenticated, editproject);
 
 // POST
-router.post("/delete-projects/:projectsid", isAuthenticated, deleteprojects);
+router.post("/delete-project/:projectid", isAuthenticated, deleteproject);
 
 // POST
-router.post("/add-skills", isAuthenticated, addskills);
+router.post("/add-skill", isAuthenticated, addskill);
 
 // POST
-router.post("/edit-skills/:skillsid", isAuthenticated, editskills);
+router.post("/edit-skill/:skillid", isAuthenticated, editskill);
 
 // POST
-router.post("/delete-skills/:skillsid", isAuthenticated, deleteskills);
+router.post("/delete-skill/:skillid", isAuthenticated, deleteskill);
 
 // POST
-router.post("/add-accomplishments", isAuthenticated, addaccomplishments);
+router.post("/add-accomplishment", isAuthenticated, addaccomplishment);
 
 // POST
-router.post("/edit-accomplishments/:accomplishmentsid", isAuthenticated, editaccomplishments);
+router.post("/edit-accomplishment/:accomplishmentid", isAuthenticated, editaccomplishment);
 
 // POST
-router.post("/delete-accomplishments/:accomplishmentsid", isAuthenticated, deleteaccomplishments);
+router.post("/delete-accomplishment/:accomplishmentid", isAuthenticated, deleteaccomplishment);
 
 
 

@@ -99,14 +99,14 @@ exports.deleteinternship = catchAsyncErrors(async (req, res, next) => {
             res.json({ message: "Internship Deleted!" });
 });
 
-exports.addresponsibilities = catchAsyncErrors(async (req, res, next) => {
+exports.addresponsibilitie = catchAsyncErrors(async (req, res, next) => {
             const student = await Student.findById(req.id).exec();
             student.resume.responsibilities.push({ ...req.body, id: uuidv4() });
             await student.save();
             res.json({ message: "Responsibilities Added!" });
 });
 
-exports.editresponsibilities = catchAsyncErrors(async (req, res, next) => {
+exports.editresponsibilitie = catchAsyncErrors(async (req, res, next) => {
             const student = await Student.findById(req.id).exec();
             const responsibilitiesIndex = student.resume.responsibilities.findIndex(
                         (i) => i.id === req.params.responsibilitiesid
@@ -119,7 +119,7 @@ exports.editresponsibilities = catchAsyncErrors(async (req, res, next) => {
             res.json({ message: "Responsibilities Updated!" });
 });
 
-exports.deleteresponsibilities = catchAsyncErrors(async (req, res, next) => {
+exports.deleteresponsibilitie = catchAsyncErrors(async (req, res, next) => {
             const student = await Student.findById(req.id).exec();
             const filteredresponsibilities = student.resume.responsibilities.filter(
                         (i) => i.id === req.params.responsibilitiesid
@@ -129,14 +129,14 @@ exports.deleteresponsibilities = catchAsyncErrors(async (req, res, next) => {
             res.json({ message: "Responsibilities Deleted!" });
 });
 
-exports.addcourses = catchAsyncErrors(async (req, res, next) => {
+exports.addcourse = catchAsyncErrors(async (req, res, next) => {
             const student = await Student.findById(req.id).exec();
             student.resume.courses.push({ ...req.body, id: uuidv4() });
             await student.save();
             res.json({ message: "Courses Added!" });
 });
 
-exports.editcourses = catchAsyncErrors(async (req, res, next) => {
+exports.editcourse = catchAsyncErrors(async (req, res, next) => {
             const student = await Student.findById(req.id).exec();
             const coursesIndex = student.resume.courses.findIndex(
                         (i) => i.id === req.params.coursesid
@@ -149,7 +149,7 @@ exports.editcourses = catchAsyncErrors(async (req, res, next) => {
             res.json({ message: "Courses Updated!" });
 });
 
-exports.deletecourses = catchAsyncErrors(async (req, res, next) => {
+exports.deletecourse = catchAsyncErrors(async (req, res, next) => {
             const student = await Student.findById(req.id).exec();
             const filteredcourses = student.resume.courses.filter(
                         (i) => i.id === req.params.coursesid
@@ -159,14 +159,14 @@ exports.deletecourses = catchAsyncErrors(async (req, res, next) => {
             res.json({ message: "Courses Deleted!" });
 });
 
-exports.addprojects = catchAsyncErrors(async (req, res, next) => {
+exports.addproject = catchAsyncErrors(async (req, res, next) => {
             const student = await Student.findById(req.id).exec();
             student.resume.projects.push({ ...req.body, id: uuidv4() });
             await student.save();
             res.json({ message: "Projects Added!" });
 });
 
-exports.editprojects = catchAsyncErrors(async (req, res, next) => {
+exports.editproject = catchAsyncErrors(async (req, res, next) => {
             const student = await Student.findById(req.id).exec();
             const projectsIndex = student.resume.projects.findIndex(
                         (i) => i.id === req.params.projectsid
@@ -179,7 +179,7 @@ exports.editprojects = catchAsyncErrors(async (req, res, next) => {
             res.json({ message: "Projects Updated!" });
 });
 
-exports.deleteprojects = catchAsyncErrors(async (req, res, next) => {
+exports.deleteproject = catchAsyncErrors(async (req, res, next) => {
             const student = await Student.findById(req.id).exec();
             const filteredprojects = student.resume.projects.filter(
                         (i) => i.id === req.params.projectsid
@@ -189,14 +189,14 @@ exports.deleteprojects = catchAsyncErrors(async (req, res, next) => {
             res.json({ message: "Projects Deleted!" });
 });
 
-exports.addskills = catchAsyncErrors(async (req, res, next) => {
+exports.addskill = catchAsyncErrors(async (req, res, next) => {
             const student = await Student.findById(req.id).exec();
             student.resume.skills.push({ ...req.body, id: uuidv4() });
             await student.save();
             res.json({ message: "Skills Added!" });
 });
 
-exports.editskills = catchAsyncErrors(async (req, res, next) => {
+exports.editskill = catchAsyncErrors(async (req, res, next) => {
             const student = await Student.findById(req.id).exec();
             const skillsIndex = student.resume.skills.findIndex(
                         (i) => i.id === req.params.skillsid
@@ -209,7 +209,7 @@ exports.editskills = catchAsyncErrors(async (req, res, next) => {
             res.json({ message: "Skills Updated!" });
 });
 
-exports.deleteskills = catchAsyncErrors(async (req, res, next) => {
+exports.deleteskill = catchAsyncErrors(async (req, res, next) => {
             const student = await Student.findById(req.id).exec();
             const filteredskills = student.resume.skills.filter(
                         (i) => i.id === req.params.skillsid
@@ -219,14 +219,14 @@ exports.deleteskills = catchAsyncErrors(async (req, res, next) => {
             res.json({ message: "Skills Deleted!" });
 });
 
-exports.addaccomplishments = catchAsyncErrors(async (req, res, next) => {
+exports.addaccomplishment = catchAsyncErrors(async (req, res, next) => {
             const student = await Student.findById(req.id).exec();
             student.resume.accomplishments.push({ ...req.body, id: uuidv4() });
             await student.save();
             res.json({ message: "Accomplishments Added!" });
 });
 
-exports.editaccomplishments = catchAsyncErrors(async (req, res, next) => {
+exports.editaccomplishment = catchAsyncErrors(async (req, res, next) => {
             const student = await Student.findById(req.id).exec();
             const accomplishmentsIndex = student.resume.accomplishments.findIndex(
                         (i) => i.id === req.params.accomplishmentsid
@@ -239,7 +239,7 @@ exports.editaccomplishments = catchAsyncErrors(async (req, res, next) => {
             res.json({ message: "Accomplishments Updated!" });
 });
 
-exports.deleteaccomplishments = catchAsyncErrors(async (req, res, next) => {
+exports.deleteaccomplishment = catchAsyncErrors(async (req, res, next) => {
             const student = await Student.findById(req.id).exec();
             const filteredaccomplishments = student.resume.accomplishments.filter(
                         (i) => i.id === req.params.accomplishmentsid

@@ -100,7 +100,7 @@ exports.employeupdate = catchAsyncErrors(async (req, res, next) => {
             });
 });
 
-exports.employeorganizationlog = catchAsyncErrors(async (req, res, next) => {
+exports.employeavatar = catchAsyncErrors(async (req, res, next) => {
             const employe = await Employe.findById(req.params.id).exec();
             const file = req.files.organizationlog;
             const modifiedFileName = `resumebuilder-${Date.now()}${path.extname(file.name)}`;
@@ -115,7 +115,7 @@ exports.employeorganizationlog = catchAsyncErrors(async (req, res, next) => {
             });
             employe.organizationlog = { fileId, url };
             await employe.save();
-            res.employe(200).json({
+            res.status(200).json({
                         success: true,
                         message: "Profile Updated!",
             });

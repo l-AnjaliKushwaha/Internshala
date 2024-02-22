@@ -24,6 +24,6 @@ const internshipModel = new mongoose.Schema(
 );
 
 
-const Internship = mongoose.model("internship", internshipModel);
+const Internship = mongoose.model("Internship", internshipModel);
 
 module.exports = Internship;

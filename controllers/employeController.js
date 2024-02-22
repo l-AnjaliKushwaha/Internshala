@@ -1,5 +1,6 @@
 const { catchAsyncErrors } = require("../middlewares/catchAsyncErrors");
 const Employe = require("../models/employeModel");
+const Internship = require("../models/internshipModel");
 const ErrorHandler = require("../utils/ErrorHandler");
 const { sendtoken } = require("../utils/SendToken");
 const { sendmail } = require("../utils/nodemailer");
@@ -121,4 +122,20 @@ exports.employeavatar = catchAsyncErrors(async (req, res, next) => {
             });
             // res.json({ file: req.files.avatar});
             // res.json({ image});
+
 });
+
+// ----------------------------------Internship-------------------------------------
+
+exports.createinternship = catchAsyncErrors(async (req, res, next) => {
+           const internship = await new Internship(req.body).save();
+           res.status(201).json({ success: true, internship});
+});
+
+exports.createinternship = catchAsyncErrors(async (req, res, next) => {
+            const internship = await new Internship(req.body).save();
+            res.status(201).json({ success: true, internship });
+});
+
+
+

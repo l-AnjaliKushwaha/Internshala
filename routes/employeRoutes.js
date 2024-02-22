@@ -12,6 +12,8 @@ const {
             employeupdate,
             employeavatar,
             createinternship,
+            readinternship,
+            readsingleinternship,
 } = require("../controllers/employeController");
 const { isAuthenticated } = require("../middlewares/auth");
 

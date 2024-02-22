@@ -58,7 +58,7 @@ const employeModel = new mongoose.Schema(
                                                 url: "https://unsplash.com/photos/a-person-cutting-a-piece-of-french-toast-on-a-plate-AdDBgVxVuMI",
                                     },
                         }, 
-                        internship: [
+                        internships: [
                                     { type: mongoose.Schema.Types.ObjectId, ref: "internship"},                      
                           ],
                           jobs: [

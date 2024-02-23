@@ -64,7 +64,6 @@ const employeModel = new mongoose.Schema(
                           jobs: [
                                       { type: mongoose.Schema.Types.ObjectId, ref: "job" },  
                           ],
-
             },
             { timestamps: true }
 );

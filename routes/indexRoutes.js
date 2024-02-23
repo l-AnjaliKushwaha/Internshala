@@ -44,5 +44,18 @@ router.post("/student/update/:id", isAuthenticated, studentupdate);
 // POST /student/avatar/:studentid
 router.post("/student/avatar/:id", isAuthenticated, studentavatar);
 
+//----------------------------------apply internship---------------------------------
+
+// POST /student/apply/:internshipid
+router.post("/student/apply/:internshipid", isAuthenticated, applyinternship);
+
+
+//------------------------------------apply job---------------------------------
+
+// POST /student/apply/:jobid
+router.post("/student/apply/:jobid", isAuthenticated, applyjob);
+
+
+
 
 module.exports = router;
